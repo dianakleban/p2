@@ -9,7 +9,7 @@
     <meta name="HandHeldFriendly" content="true">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/contactus.css" type="text/css" />
+    <link rel="stylesheet" href="styles/contactUs.css" type="text/css" />
 </head>
 <body>
     <div id="wrapper">
