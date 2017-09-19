@@ -29,12 +29,12 @@ if (isset($_POST['lang'])) {
         $results = 'Please choose your language.';
     } else {
         if($contactNm != '') {
-          $results = $contactNm . ', ';
+          $results = sanitize($contactNm) . ', ';
         }
-        $results .= 'Great Choice of Language: ' . $lang . '! ';
+        $results .= 'Great Choice of Language: ' . sanitize($lang) . '! ';
 
         if($comments != '') {
-          $results .= 'Thank you for your comments: ' . '"' . $comments . '"';
+          $results .= 'Thank you for your comments: ' . '"' . sanitize($comments) . '"';
         }
     }
 }
