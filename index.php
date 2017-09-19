@@ -57,7 +57,7 @@
               <?php if ($_POST) : ?>
                 <div class="alert">
                   <p>Welcome to our Language School!</p>
-                  <p><?=sanitize($results)?></p>
+                  <p><?=$results?></p>
                 </div>
               <?php endif; ?>
 
