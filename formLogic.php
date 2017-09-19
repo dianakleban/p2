@@ -28,9 +28,11 @@ if (isset($_POST['lang'])) {
     if ($lang == 'choose') {
         $results = 'Please choose your language.';
     } else {
+      
         if($contactNm != '') {
           $results = sanitize($contactNm) . ', ';
         }
+
         $results .= 'Great Choice of Language: ' . sanitize($lang) . '! ';
 
         if($comments != '') {

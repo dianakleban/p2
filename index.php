@@ -25,7 +25,8 @@
       <article>
         <section id="myform">
 
-          <form id='myForm' method='POST' action='index.php'>
+          <form method='POST' action='index.php'>
+
             <fieldset>
               <legend>Contact Us</legend>
               <p>
@@ -37,6 +38,7 @@
                 <label for="email" class="category"> Your Email:</label>
                 <input name="email" type="email" id="email" size="32" value='<?=sanitize($contactEmail)?>'/><span class="reqMsg" id="emailSpn"> (Required)</span>
               </p>
+
               <p>
                 <label for="langId" class="category">Language to Learn:</label>
                 <select name="lang" id="langId">
@@ -47,6 +49,7 @@
                   <option value='Italian' <?php if ($lang == 'Italian') echo 'SELECTED'?>>Italian</option>
                 </select><span class="reqMsg" id="langSpn"> (Required)</span>
               </p>
+
               <p>
                 <label for="comments" class="category">Comments: </label><br />
                 <textarea name="comments" cols="60" rows="6" id="comments" placeholder="Any additional instructions"><?=sanitize($comments)?></textarea>
