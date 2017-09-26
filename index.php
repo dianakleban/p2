@@ -22,7 +22,7 @@
         <img src="images/phone.jpg" id="imgId" title="Contact Us" alt="Contact Us" />
       </aside>
       <article>
-        <!--<section id="myform">-->
+          <h2> We can not wait to hear from you </h2>
 
           <form method='POST' action='index.php'>
 
@@ -80,7 +80,7 @@
 
             </fieldset>
           </form>
-        <!--</section>-->
+
       </article>
       <footer>
         <p>

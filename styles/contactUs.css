@@ -78,10 +78,8 @@ article
 	font-size: 110%;
 }
 
-
-section ul li
-{
-    padding-top: 5px;
+article h2{
+	display: none;
 }
 
 hr
