@@ -1,42 +1,36 @@
 <?php
+require('Form.php');
 require('helpers.php');
 
-if (isset($_POST['name'])) {
-    $contactNm = $_POST['name'];
-} else {
-    $contactNm = '';
-}
+use DWA\Form;
 
-if (isset($_POST['email'])) {
-    $contactEmail = $_POST['email'];
-} else {
-    $contactEmail = '';
-}
+$form = new Form($_POST);
 
-if (isset($_POST['comments'])) {
-    $comments = $_POST['comments'];
-} else {
-    $comments = '';
-}
-
-$lang = '';
 $results = '';
+$lang = '';
 
-if (isset($_POST['lang'])) {
-    $lang = $_POST['lang'];
+if ($form->isSubmitted()) {
 
-    if ($lang == 'choose') {
-        $results = 'Please choose your language.';
-    } else {
-      
-        if($contactNm != '') {
-          $results = sanitize($contactNm) . ', ';
-        }
+    $name = $form->get('name', '');
+    $email = $form->get('email', '');
+    $comments = $form->get('comments', '');
+    $lang = $form->get('lang', '');
 
-        $results .= 'Great Choice of Language: ' . sanitize($lang) . '! ';
+    $errors = $form->validate([
+            'name' => 'required|alpha',
+            'email' => 'required|email',
+            'lang'=> 'required'
+    ]);
 
-        if($comments != '') {
-          $results .= 'Thank you for your comments: ' . '"' . sanitize($comments) . '"';
-        }
+  //if there is no errors
+  if (empty($errors)) {
+
+    $results = sanitize($name) . ', ';
+    $results .= 'Great Choice of Language: ' . sanitize($lang) . '! ';
+
+    if($comments != '') {
+      $results .= 'Thank you for your comments: ' . '"' . sanitize($comments) . '"';
     }
-}
+
+  }
+}//END OF submit

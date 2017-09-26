@@ -15,15 +15,14 @@
 <body>
   <div id="wrapper">
     <header>
-      <h1 id="imgHere">
-        Language School</h1>
+      <h1 id="imgHere">Language School</h1>
         <hr id="tophr" />
-      </header>
+    </header>
       <aside>
         <img src="images/phone.jpg" id="imgId" title="Contact Us" alt="Contact Us" />
       </aside>
       <article>
-        <section id="myform">
+        <!--<section id="myform">-->
 
           <form method='POST' action='index.php'>
 
@@ -31,18 +30,20 @@
               <legend>Contact Us</legend>
               <p>
                 <label for="name" class="category">Your Name:</label>
-                <input name="name" type="text" size="32" id="name" value='<?=sanitize($contactNm)?>' autofocus/> <span class="reqMsg" id="nameSpn"> (Required)</span>
+                <input name="name" type="text" size="32" id="name" value='<?=$form->prefill('name', '')?>' autofocus>
+                <span class="reqMsg" id="nameSpn"> (Required)</span>
               </p>
 
               <p>
                 <label for="email" class="category"> Your Email:</label>
-                <input name="email" type="email" id="email" size="32" value='<?=sanitize($contactEmail)?>'/><span class="reqMsg" id="emailSpn"> (Required)</span>
+                <input name="email" type="email" id="email" size="32" value='<?=$form->prefill('email', '')?>'>
+                <span class="reqMsg" id="emailSpn"> (Required)</span>
               </p>
 
               <p>
                 <label for="langId" class="category">Language to Learn:</label>
                 <select name="lang" id="langId">
-                  <option value='choose'>Select</option>
+                  <option value=''>Select</option>
                   <option value='Russian' <?php if ($lang == 'Russian') echo 'SELECTED'?>>Russian</option>
                   <option value='English' <?php if ($lang == 'English') echo 'SELECTED'?>>English</option>
                   <option value='French' <?php if ($lang == 'French') echo 'SELECTED'?>>French</option>
@@ -52,21 +53,34 @@
 
               <p>
                 <label for="comments" class="category">Comments: </label><br />
-                <textarea name="comments" cols="60" rows="6" id="comments" placeholder="Any additional instructions"><?=sanitize($comments)?></textarea>
+                <textarea name="comments" cols="60" rows="6" id="comments" placeholder="Additional Info"><?=$form->prefill('comments', '')?></textarea>
               </p>
 
               <input type="submit" value="Submit" />
 
-              <?php if ($_POST) : ?>
-                <div class="alert">
+              <?php if (!empty($errors)) : ?>
+                <div class='alert'>
+                  <ul>
+                    <?php foreach ($errors as $error) : ?>
+                      <li><?=$error?></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
+              <?php endif; ?>
+
+              <?php if ($form->isSubmitted() and empty($errors)) : ?>
+
+                <div class="welcome">
                   <p>Welcome to our Language School!</p>
                   <p><?=$results?></p>
+                  <p>We will get back to you soon!</p>
                 </div>
+
               <?php endif; ?>
 
             </fieldset>
           </form>
-        </section>
+        <!--</section>-->
       </article>
       <footer>
         <p>

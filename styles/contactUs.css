@@ -165,8 +165,21 @@ legend
 {
 	margin-top: 15px;
 	color: navy;
-	background-color: lightyellow;
+	background-color: orange;
 	width: 90%;
 	font-weight: bold;
+	padding-bottom: 5px;
+	padding: 5px;
+
+}
+
+.welcome
+{
+	margin-top: 15px;
+	color: navy;
+	background-color: lightblue;
+	width: 90%;
+	font-weight: bold;
+	padding: 5px;
 
 }
