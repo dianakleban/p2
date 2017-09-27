@@ -150,6 +150,12 @@ legend
     padding-left: 7px;
 }
 
+.yourNm
+{
+	color: #B30000;
+	font-weight: bold;
+}
+
 .msg
 {
     display: none;
